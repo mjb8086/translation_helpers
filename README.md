@@ -9,6 +9,7 @@ To use:
 
 - Install Perl
 - Open a new shell window
+- Run `cpan` to bootstrap CPAN and agree to all defaults
 - Run `cpan install WWW::Google::Translate Spreadsheet::ParseXLSX Excel::Writer::XLSX`
 - Edit `gtranslate.pl` to include a Google Translate API key
 
