@@ -18,9 +18,10 @@ use Spreadsheet::ParseXLSX;
 # globals
 my ($sourceXls, $workbook, $parser, $json);
 
-# Create JSON encoder object 
+# Create JSON encoder object, set pretty print and sort output
 $json = JSON->new->allow_nonref;
-$json = $json->pretty([1]);
+$json->pretty([1]);
+$json->canonical([1]);
 
 my $BANNER = << 'EOF';
 Convert excel worksheets into JSON files. Author: MJB. (23/12/21)
