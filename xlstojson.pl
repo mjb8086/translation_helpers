@@ -11,6 +11,7 @@ use JSON;
 use Data::Dumper;
 use feature qw(signatures);
 no warnings qw(experimental::signatures);
+use Encode qw(encode_utf8);
 
 # cpan mods
 use Spreadsheet::ParseXLSX;
@@ -46,7 +47,7 @@ sub write_json_file($jsonfn, $hashref) {
     #    die "Couldn't encode JSON: $!" if $!;
 
     say "Writing to $jsonfn";
-    print $fh "$jsonTxt";
+    print $fh encode_utf8("$jsonTxt");
     close $fh;
 }
 

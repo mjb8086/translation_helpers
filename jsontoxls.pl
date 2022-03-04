@@ -10,6 +10,7 @@ use warnings;
 use v5.16;
 use JSON qw (decode_json);
 use Data::Dumper;
+use Encode qw(encode_utf8);
 
 # cpan mods
 use Excel::Writer::XLSX;
@@ -39,7 +40,7 @@ sub read_json_file {
     open $fh, '<', "$jsonf" or die "Cannot read '$jsonf': $!\n";
     $jsonf_txt .= $_ while <$fh>;
 
-    my $json = decode_json($jsonf_txt);
+    my $json = decode_json( encode_utf8($jsonf_txt) );
     #say Dumper($json);
 
     my %json_hsh = %{$json};
